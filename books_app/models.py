@@ -19,9 +19,8 @@ class PublishingHouse(models.Model):
 
 
 class Books(models.Model):
-    name = models.CharField(max_length=128)
-    authorId = models.ForeignKey(Authors, related_name='book', on_delete=models.CASCADE)
-    publishId = models.ForeignKey(PublishingHouse, related_name='book', on_delete=models.CASCADE)
+    author = models.CharField(max_length=60)
+    publish = models.CharField(max_length=60)
     title = models.CharField(max_length=128)
     code = models.CharField(max_length=128)
     yearPublish = models.DateTimeField()
@@ -31,4 +30,4 @@ class Books(models.Model):
     status = models.BooleanField()
 
     def __str__(self):
-        return f'{self.name}'
+        return f'{self.title}'
