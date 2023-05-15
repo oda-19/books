@@ -19,11 +19,12 @@ class PublishingHouse(models.Model):
 
 
 class Books(models.Model):
+    id = models.IntegerField(primary_key=True)
     author = models.CharField(max_length=60)
     publish = models.CharField(max_length=60)
     title = models.CharField(max_length=128)
     code = models.CharField(max_length=128)
-    yearPublish = models.DateTimeField()
+    yearPublish = models.IntegerField()
     countPage = models.IntegerField()
     hardcover = models.CharField(max_length=128)
     abstract = models.CharField(max_length=128)
