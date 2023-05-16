@@ -1,12 +1,12 @@
 from rest_framework import routers
 
-from .views import AuthorsViewSet, BooksViewSet, PublishingHouseViewSet
+from .views import AuthorsViewSet, BooksViewSet, PublishersViewSet
 
 
-router = routers.DefaultRouter(trailing_slash=True)
-router.register(r'authors', AuthorsViewSet, basename='newssite')
-router.register(r'books', BooksViewSet, basename='newstags')
-router.register(r'PublishingHouses', PublishingHouseViewSet, basename='userssite')
+router = routers.DefaultRouter()
+router.register(r'authors', AuthorsViewSet)
+router.register(r'books', BooksViewSet)
+router.register(r'publishers', PublishersViewSet)
 urlpatterns = [
     *router.urls,
 ]

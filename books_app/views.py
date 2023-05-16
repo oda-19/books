@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 
-from books_app.models import Books, Authors, PublishingHouse
-from books_app.serializers import BooksSerializer, AuthorsSerializer, PublishingHouseSerializer
+from books_app.models import Books, Authors, Publishers
+from books_app.serializers import BooksSerializer, AuthorsSerializer, PublishersSerializer
 
 
 class BooksViewSet(viewsets.ModelViewSet):
@@ -14,6 +14,6 @@ class AuthorsViewSet(viewsets.ModelViewSet):
     serializer_class = AuthorsSerializer
 
 
-class PublishingHouseViewSet(viewsets.ModelViewSet):
-    queryset = PublishingHouse.objects.all().order_by('id')
-    serializer_class = PublishingHouseSerializer
+class PublishersViewSet(viewsets.ModelViewSet):
+    queryset = Publishers.objects.all().order_by('id')
+    serializer_class = PublishersSerializer

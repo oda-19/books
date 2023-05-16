@@ -1,4 +1,4 @@
-from .models import Authors, Books, PublishingHouse
+from .models import Authors, Books, Publishers
 from rest_framework import serializers
 
 
@@ -14,7 +14,7 @@ class AuthorsSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class PublishingHouseSerializer(serializers.ModelSerializer):
+class PublishersSerializer(serializers.ModelSerializer):
     class Meta:
-        model = PublishingHouse
+        model = Publishers
         fields = '__all__'

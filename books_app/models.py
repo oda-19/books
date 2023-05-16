@@ -2,6 +2,7 @@ from django.db import models
 
 
 class Authors(models.Model):
+    id = models.IntegerField(primary_key=True)
     firstName = models.CharField(max_length=128)
     lastName = models.CharField(max_length=128)
 
@@ -9,13 +10,14 @@ class Authors(models.Model):
         return f'{self.firstName} {self.lastName}'
 
 
-class PublishingHouse(models.Model):
-    namePublish = models.CharField(max_length=128)
+class Publishers(models.Model):
+    id = models.IntegerField(primary_key=True)
+    namePublisher = models.CharField(max_length=128)
     address = models.CharField(max_length=128)
-    site = models.URLField()
+    site = models.CharField(max_length=60)
 
     def __str__(self):
-        return f'{self.namePublish}'
+        return f'{self.namePublisher}'
 
 
 class Books(models.Model):
