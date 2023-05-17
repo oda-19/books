@@ -2,7 +2,6 @@ from django.db import models
 
 
 class Authors(models.Model):
-    id = models.IntegerField(primary_key=True)
     firstName = models.CharField(max_length=128)
     lastName = models.CharField(max_length=128)
 
@@ -11,7 +10,6 @@ class Authors(models.Model):
 
 
 class Publishers(models.Model):
-    id = models.IntegerField(primary_key=True)
     namePublisher = models.CharField(max_length=128)
     address = models.CharField(max_length=128)
     site = models.CharField(max_length=60)
@@ -21,9 +19,8 @@ class Publishers(models.Model):
 
 
 class Books(models.Model):
-    id = models.IntegerField(primary_key=True)
-    author = models.CharField(max_length=60)
-    publish = models.CharField(max_length=60)
+    authorId = models.ForeignKey(Authors, on_delete=models.CASCADE)
+    publishId = models.ForeignKey(Publishers, on_delete=models.CASCADE)
     title = models.CharField(max_length=128)
     code = models.CharField(max_length=128)
     yearPublish = models.IntegerField()
