@@ -19,14 +19,14 @@ class Publishers(models.Model):
 
 
 class Books(models.Model):
-    authorId = models.ForeignKey(Authors, on_delete=models.CASCADE)
-    publishId = models.ForeignKey(Publishers, on_delete=models.CASCADE)
+    authorId = models.ForeignKey(Authors, on_delete=models.SET_DEFAULT, default=-1)
+    publishId = models.ForeignKey(Publishers, on_delete=models.SET_DEFAULT, default=-1)
     title = models.CharField(max_length=128)
     code = models.CharField(max_length=128)
     yearPublish = models.IntegerField()
     countPage = models.IntegerField()
     hardcover = models.CharField(max_length=128)
-    abstract = models.CharField(max_length=128)
+    abstract = models.CharField(max_length=255)
     status = models.BooleanField()
 
     def __str__(self):
