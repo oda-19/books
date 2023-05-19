@@ -30,6 +30,17 @@ ALLOWED_HOSTS = ['10.0.2.2:8000',
                  '127.0.0.1',]
 
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
+
+SIMPLE_JWT = {
+   'AUTH_HEADER_TYPES': ('JWT',),
+}
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -41,6 +52,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'books_app',
     'rest_framework',
+    'djoser',
 ]
 
 MIDDLEWARE = [
