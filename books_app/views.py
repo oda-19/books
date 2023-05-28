@@ -4,6 +4,9 @@ from books_app.models import Books, Authors, Publishers
 from books_app.serializers import BooksSerializer, AuthorsSerializer, PublishersSerializer
 from rest_framework.permissions import IsAuthenticated
 
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class BooksViewSet(viewsets.ModelViewSet):
